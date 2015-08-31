@@ -6,11 +6,11 @@ uses
   Classes, SysUtils;
 
 const VERSION = '0.0.1';
-      AUTHOR  = 's1nka';
+      AUTHOR  = 's1nka [Lab 313]';
 
 procedure PrintVer;
 begin
-  WriteLn('ipsextract ver ['+VERSION+'] by ['+AUTHOR+']');
+  WriteLn('ipsextract ver ['+VERSION+'] by '+AUTHOR+'');
 end;
 
 procedure PrintHelp;
@@ -18,22 +18,6 @@ begin
   WriteLn('usage:');
   WriteLn(' ipsextract <binary file>');
 end;
-
-{procedure GetArrayIndex(Text, Word : string; var outArray : Array of Integer);
-var i : Integer;
-    fooArray : Array of Integer;
-begin
-  i := 0;
-  SetLength(outArray, 0);
-  while Pos(Word, Text) > 0 do
-  begin
-    SetLength(outArray, i+1);
-    outArray[i] := Pos(Word, Text);
-    WriteLn(Word+' found in '+IntToStr(outArray[i]));
-    Delete(Text,1,outArray[i]+Length(Word));
-    Inc(i);
-  end;
-end;}
 
 procedure ProcessFile(inFile: string);
 var
@@ -64,7 +48,6 @@ begin
     curIndex := Pos('PATCH', fooText);
     totalIndex := totalIndex + curIndex;
     startArray[startIndex] := totalIndex;
-    //WriteLn('PATCH found in '+IntToStr(startArray[startIndex]));
     Delete(fooText,1,curIndex);
     Inc(startIndex);
   end;
@@ -79,7 +62,6 @@ begin
     curIndex := Pos('EOF', fooText);
     totalIndex := totalIndex + curIndex;
     endArray[endIndex] := totalIndex;
-    //WriteLn('EOF found in '+IntToStr(endArray[endIndex]));
     Delete(fooText,1,curIndex);
     Inc(endIndex);
   end;

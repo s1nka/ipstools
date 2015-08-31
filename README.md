@@ -9,3 +9,6 @@ usage:
 ``
 ipsextract <binary file>
 ``
+
+todo:
+* verify IPS file
